@@ -1,0 +1,122 @@
+/* Estilos para telas maiores, por exemplo, desktops */
+body {
+    background-color: rgb(46, 46, 95);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.telasoma {
+    background-color: rgb(22, 22, 48);
+    width: 40vw;
+    height: 15vh;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #fff;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+}
+
+.tela-numero {
+    width: 40vw;
+    background-color: rgb(61, 61, 102);
+    height: 70vh;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.numeros {
+    background-color: #fff;
+    width: 15vh;
+    height: 8vh;
+    list-style: none;
+    margin-left: 1.2vw;
+    margin-top: 3vh;
+    border: none;
+    border-radius: 10px;
+    font-size: 27px;
+    box-shadow: 0 5px 0 rgb(163, 160, 160);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+}
+
+.resultado,
+.reset,
+#del {
+    width: 15vh;
+    height: 8vh;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 25px;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+.reset {
+    margin-left: 4.2vw;
+    margin-top: 2vh;
+    background-color: rgb(22, 22, 48);
+    box-shadow: 0 5px 0 rgb(15, 15, 32);
+}
+
+.resultado {
+    background-color: rgb(226, 32, 32);
+    margin-left: 1.1vw;
+    box-shadow: 0 5px 0 rgb(170, 23, 23);
+}
+
+#del {
+    background-color: rgb(22, 22, 48);
+    color: #fff;
+    box-shadow: 0 5px 0 rgb(15, 15, 32);
+    margin-top: 3vh; /* Ajustando a margem superior */
+    margin-left: 1.2vw; /* Ajustando a margem esquerda */
+}
+
+/* Estilos para telas menores, por exemplo, tablets ou dispositivos móveis */
+@media only screen and (max-width: 768px) {
+    .telasoma {
+        width: 80vw;
+        font-size: 18px;
+    }
+    
+    .tela-numero {
+        width: 80vw;
+        height: 50vh;
+    }
+    
+    .numeros {
+        width: 30vw;
+        height: 6vh;
+        font-size: 20px;
+    }
+    
+    .reset,
+    .resultado,
+    #del {
+        width: 30vw;
+        height: 6vh;
+        font-size: 20px;
+    }
+}

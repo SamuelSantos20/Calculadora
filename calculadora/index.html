@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    <!--font dos numeros-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-KGt5ecINVPFOWFlxZCxHTPHGwUnzqgK26kNbaJrmbBzw9oiBcUpT/4feBTZD+YVyL7SUGScJz+sEG8IkcErjgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-KGt5ecINVPFOWFlxZCxHTPHGwUnzqgK26kNbaJrmbBzw9oiBcUpT/4feBTZD+YVyL7SUGScJz+sEG8IkcErjgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-KGt5ecINVPFOWFlxZCxHTPHGwUnzqgK26kNbaJrmbBzw9oiBcUpT/4feBTZD+YVyL7SUGScJz+sEG8IkcErjgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="telasoma">0</div>
+        <div class="tela-numero">
+            <ul>
+                <li>
+                    <button class="numeros">7</button>
+                </li>
+                <li>
+                    <button class="numeros">8</button>
+                </li>
+                <li>
+                    <button class="numeros">9</button>
+                </li>
+                <li>
+                    <button id="del">
+                        DEL
+                    </button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button class="numeros">4</button>
+                </li>
+                <li>
+                    <button class="numeros">5</button>
+                </li>
+                <li>
+                    <button class="numeros">6</button>
+                </li>
+                <li>
+                    <button class="numeros">+</button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button class="numeros">1</button>
+                </li>
+                <li>
+                    <button class="numeros">2</button>
+                </li>
+                <li>
+                    <button class="numeros">3</button>
+                </li>
+                <li>
+                    <button class="numeros">-</button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button class="numeros">.</button>
+                </li>
+                <li>
+                    <button class="numeros">0</button>
+                </li>
+                <li>
+                    <button class="numeros">/</button>
+                </li>
+                <li>
+                    <button class="numeros">x</button>
+                </li>
+            </ul>
+            <div class="butts">
+                <button class="reset">reset</button>
+                <button class="resultado">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const display = document.querySelector('.telasoma');
+            const buttons = document.querySelectorAll('.numeros');
+            const resetButton = document.querySelector('.reset');
+            const equalsButton = document.querySelector('.resultado');
+            const delButton = document.querySelector('#del');
+
+            let currentInput = '';
+
+            // Função para atualizar a tela da calculadora com o input atual
+            function updateDisplay() {
+                display.textContent = currentInput;
+            }
+
+            // Função para adicionar números ou operadores ao input atual e atualizar a tela
+            function addToCurrentInput(value) {
+                if (value === 'x') {
+                    value = '*'; // Substituir 'x' pelo operador de multiplicação '*'
+                }
+                currentInput += value;
+                updateDisplay();
+            }
+
+            // Função para calcular o resultado da expressão matemática atual e exibir na tela
+            function calculateResult() {
+                try {
+                    const result = eval(currentInput); // Usando eval para avaliar a expressão
+                    currentInput = result.toString(); // Convertendo o resultado para string e atribuindo ao input atual
+                    updateDisplay();
+                } catch (error) {
+                    currentInput = 'Error'; // Se houver um erro na expressão, exibir "Error" na tela
+                    updateDisplay();
+                }
+            }
+
+            // Função para deletar o último caractere da tela de exibição (telasoma)
+            function deleteLastCharacter() {
+                let currentValue = display.textContent;
+                if (currentValue.length > 0) {
+                    currentValue = currentValue.slice(0, -1);
+                    display.textContent = currentValue;
+                    currentInput = currentValue; // Atualiza o input com o valor removido
+                } else {
+                    currentInput = ''; // Reinicia o input se estiver vazio
+                    updateDisplay();
+                }
+            }
+
+            // Função para redefinir o input para vazio
+            function resetInput() {
+                currentInput = '';
+                updateDisplay();
+            }
+
+            // Event listeners para os botões de números e operadores
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    addToCurrentInput(button.textContent);
+                });
+            });
+
+            // Event listener para o botão de reset
+            resetButton.addEventListener('click', resetInput);
+
+            // Event listener para o botão de igual
+            equalsButton.addEventListener('click', () => {
+                calculateResult();
+            });
+
+            // Event listener para o botão DEL (deletar último caractere da tela de exibição)
+            delButton.addEventListener('click', deleteLastCharacter);
+        });
+
+    </script>
+</body>
+
+</html>
