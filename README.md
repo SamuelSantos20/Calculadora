@@ -20,7 +20,9 @@ Este projeto é uma calculadora web simples desenvolvida utilizando **JavaScript
 Estrutura do Projeto
 
 index.html: Arquivo principal HTML que estrutura a página da calculadora.
+
 styles/: Contém arquivos CSS para estilização da calculadora.
+
 scripts/: Contém o arquivo JavaScript para funcionalidades da calculadora.
 
 Contribuição
